@@ -1,0 +1,34 @@
+Makefile Content Description
+
+
+1. CFLAGS =
+CFLAGS specifies the compiler options and flags used to build the xv6 kernel and user programs.
+These are compiler options.
+They tell GCC how to compile xv6 kernel and programs.
+Example: -m32 makes a 32-bit kernel, -Wall enables warnings.
+
+
+2. dd if=kernel
+dd if=kernel copies the compiled kernel into the xv6 disk image at the required location.
+dd copies data.
+if=kernel means input file is kernel.
+It writes kernel into the xv6 disk image.
+
+
+3. _%:
+_% rule builds xv6 user programs by linking object files with required libraries.
+It is a Makefile rule.
+It creates user programs in xv6.     :-    ls.c → ls.o → _ls
+The underscore _ is used because xv6 stores user programs with names like: _ls, _echo
+
+
+4. mkfs
+mkfs creates the xv6 filesystem image containing files used by the operating system.
+mkfs creates the xv6 filesystem image.
+It puts files into fs.img.
+
+
+5. qemu
+qemu runs the compiled xv6 operating system inside an x86 emulator.
+Starts xv6 using QEMU emulator.
+Simulates an x86 computer.

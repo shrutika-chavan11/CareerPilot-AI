@@ -1,0 +1,306 @@
+XV6 INSTALLATION + ASSIGNMENT COMMAND SUMMARY
+
+--------------------------------------------------
+1. INSTALLATION AND SETUP COMMANDS
+--------------------------------------------------
+
+sudo apt update
+- Updates the package list from Ubuntu repositories.
+- Used before installing packages.
+
+sudo apt install <package-name>
+- Installs required software packages.
+
+Example:
+sudo apt install gcc qemu git
+
+sudo apt clean
+- Removes downloaded package cache files.
+- Frees disk space.
+
+sudo rm -rf /var/lib/apt/lists/*
+- Deletes downloaded apt package lists.
+- Used when package lists are corrupted.
+- After running this, use:
+  sudo apt update
+
+
+git clone https://github.com/mit-pdos/xv6-public
+- Downloads the xv6 source code from GitHub.
+
+cd xv6-public
+- Enters the xv6 project directory.
+
+
+--------------------------------------------------
+2. XV6 BUILD COMMANDS
+--------------------------------------------------
+
+make clean
+- Removes previously generated xv6 build files.
+- Deletes kernel, object files, xv6.img, and other compiled files.
+
+make CC=gcc-10
+- Builds the xv6 operating system using GCC version 10.
+- CC specifies which C compiler should be used.
+
+make
+- Compiles xv6 source code and creates:
+  kernel
+  xv6.img
+  bootblock
+  user programs
+
+
+make qemu
+- Runs xv6 inside the QEMU emulator.
+- Starts the xv6 shell.
+
+Example output:
+init: starting sh
+$
+
+
+--------------------------------------------------
+3. XV6 SHELL COMMANDS USED
+--------------------------------------------------
+
+uptime
+- Displays the amount of time the xv6 system has been running.
+- In xv6 it shows timer ticks.
+
+Example:
+$ uptime
+ticks = 5725
+
+
+usertests
+- Runs xv6 system tests.
+- Tests processes, memory, file system, pipes, and system calls.
+
+Successful output:
+ALL TESTS PASSED
+
+
+stressfs
+- Tests xv6 file system performance.
+- Creates and modifies many files to stress the file system.
+
+
+ls
+- Lists files present in xv6 filesystem.
+
+
+cat
+- Displays contents of a file.
+
+
+echo
+- Prints text to the terminal.
+
+
+--------------------------------------------------
+4. MAKEFILE IMPORTANT LINES (ASSIGNMENT)
+--------------------------------------------------
+
+CFLAGS =
+- Defines compiler flags used while compiling xv6.
+- Controls options like optimization, warnings, debugging, and 32-bit compilation.
+
+Example:
+CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror
+
+
+dd if=kernel
+- Copies the compiled kernel into the xv6 disk image.
+- Places the kernel after the boot block.
+
+Meaning:
+if = input file
+of = output file
+
+
+_%:
+- Rule used to build xv6 user programs.
+- Creates executable files for user commands by linking object files.
+
+Example:
+_ls, _cat, _echo
+
+
+mkfs
+- Creates the xv6 filesystem image.
+- Places user programs and files into fs.img.
+
+
+qemu
+- Makefile target used to start xv6 using QEMU emulator.
+- Loads xv6.img and fs.img and runs the operating system.
+
+
+--------------------------------------------------
+5. IMPORTANT XV6 FILES STUDIED
+--------------------------------------------------
+
+Makefile
+- Controls compilation, linking, disk image creation, and running xv6.
+
+usertests.c
+- Contains programs that test xv6 features and system calls.
+
+syscall.c
+- Handles system call numbers and connects user requests to kernel functions.
+
+sysproc.c
+- Contains process-related system calls.
+Examples:
+fork()
+exit()
+wait()
+kill()
+getpid()
+
+sysfile.c
+- Contains file-related system calls.
+Examples:
+open()
+read()
+write()
+close()
+mkdir()
+
+proc.c
+- Handles process creation, scheduling, and process management.
+
+vm.c
+- Handles virtual memory and page tables.
+
+user.h
+- Contains declarations of user-level system calls.
+
+usys.S
+- Contains assembly code that creates user-level system call wrappers.
+
+trap.c
+- Handles traps, interrupts, and system call entry.
+
+
+--------------------------------------------------
+6. SYSTEM CALL RELATED KEYWORDS
+--------------------------------------------------
+
+System Call:
+- A way for a user program to request a service from the kernel.
+
+User Mode:
+- Normal program execution with limited privileges.
+
+Kernel Mode:
+- Operating system execution with full hardware access.
+
+Trap:
+- A mechanism that transfers control from user program to kernel.
+
+fork()
+- Creates a new process.
+
+exec()
+- Replaces the current process with a new program.
+
+wait()
+- Makes a parent process wait for child completion.
+
+exit()
+- Terminates a process.
+
+getpid()
+- Returns the process ID.
+
+read()
+- Reads data from a file.
+
+write()
+- Writes data to a file.
+
+open()
+- Opens a file.
+
+close()
+- Closes a file descriptor.
+
+
+--------------------------------------------------
+7. PIPE ASSIGNMENT EXAMPLES (LINUX BUT NOT XV6)
+--------------------------------------------------
+
+1.
+ls | grep txt
+
+Description:
+Lists files and shows only files containing "txt".
+Does not work in xv6 because grep is not included.
+
+
+2.
+ls | sort
+
+Description:
+Lists files and sorts them alphabetically.
+Does not work in xv6 because sort command is not available.
+
+
+3.
+cat file.txt | head -5
+
+Description:
+Displays only first five lines of a file.
+Does not work in xv6 because head command is not available.
+
+
+--------------------------------------------------
+8. TIME MEASUREMENT ASSIGNMENT
+--------------------------------------------------
+
+uptime before running test:
+ticks = 558
+
+uptime after usertests:
+ticks = 5725
+
+Time taken by usertests:
+5725 - 558 = 5167 ticks
+
+
+uptime before stressfs:
+ticks = 8407
+
+uptime after stressfs:
+ticks = 15596
+
+Time taken by stressfs:
+15596 - 8407 = 7189 ticks
+
+
+--------------------------------------------------
+9. COMMON XV6 BUILD FLOW
+--------------------------------------------------
+
+git clone xv6-public
+        |
+        ↓
+cd xv6-public
+        |
+        ↓
+make clean
+        |
+        ↓
+make CC=gcc-10
+        |
+        ↓
+make qemu
+        |
+        ↓
+Run xv6 commands:
+uptime
+usertests
+stressfs

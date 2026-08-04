@@ -1,0 +1,91 @@
+Time Measurement of xv6 Programs
+
+1. usertests
+
+Command used:
+$ usertests
+
+Before running usertests:
+$ uptime
+ticks = 558
+
+After running usertests:
+$ uptime
+ticks = 5725
+
+Time taken:
+5725 - 558 = 5167 ticks
+
+
+Description:
+usertests is an xv6 user-level testing program. It checks whether different parts of the xv6 operating system are working correctly. It tests system calls, processes, memory management, file systems, pipes, and other OS features.
+
+Some tests performed by usertests:
+- fork test       : checks process creation
+- exec test       : checks program execution
+- pipe test       : checks communication between processes
+- open/read/write : checks file operations
+- sbrk test       : checks memory allocation
+- link/unlink     : checks file system links
+
+At the end, if everything works correctly:
+"ALL TESTS PASSED"
+is displayed.
+
+
+--------------------------------------------------
+
+
+2. stressfs
+
+Command used:
+$ stressfs
+
+(Note: In xv6-public the command name may be stressfs, not stresssfs.)
+
+Before running stressfs:
+$ uptime
+ticks = 8407
+
+After running stressfs:
+$ uptime
+ticks = 15596
+
+Time taken:
+15596 - 8407 = 7189 ticks
+
+
+Description:
+stressfs is an xv6 user-level program used to test the file system performance and reliability under heavy load.
+
+It creates multiple processes that:
+- create files
+- write data into files
+- read files
+- delete files
+
+It checks whether the xv6 file system can correctly handle multiple simultaneous file operations.
+
+--------------------------------------------------
+
+
+Difference between usertests and stressfs:
+
+usertests:
+- Tests correctness of many OS features.
+- Covers system calls, processes, memory, and file operations.
+- Used mainly for finding bugs.
+
+stressfs:
+- Mainly tests the file system.
+- Creates heavy read/write workload.
+- Used for checking file system stability and performance.
+
+
+Final Time Summary:
+
+Program        Before ticks     After ticks     Time Taken
+
+usertests          558             5725          5167 ticks
+
+stressfs           8407            15596         7189 ticks
