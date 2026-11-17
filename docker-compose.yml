@@ -1,0 +1,12 @@
+services:
+  careerpilot:
+    build: .
+    ports: ["8000:8000","8501:8501"]
+    env_file: .env
+    environment:
+      API_BASE_URL: http://127.0.0.1:8000
+      DATABASE_URL: sqlite:////data/careerpilot.db
+    volumes:
+      - careerpilot_data:/data
+volumes:
+  careerpilot_data:

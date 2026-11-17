@@ -1,0 +1,138 @@
+[
+  {
+    "title": "AI/LLM Engineering Intern",
+    "company": "Northstar Labs",
+    "location": "Bengaluru, India",
+    "work_mode": "Hybrid",
+    "description": "Build LLM assistants, prompt workflows, structured outputs, RAG and evaluation pipelines with Python APIs and SQL.",
+    "skills": [
+      "Python",
+      "LLMs",
+      "Prompt Engineering",
+      "RAG",
+      "FastAPI",
+      "SQL",
+      "Embeddings"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/ai-llm"
+  },
+  {
+    "title": "Backend Engineering Intern",
+    "company": "CloudHarbor",
+    "location": "Remote, India",
+    "work_mode": "Remote",
+    "description": "Develop Python backend services, REST APIs, relational data models, query optimization and reliable integrations.",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "REST APIs",
+      "SQL",
+      "Docker",
+      "Git"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/backend"
+  },
+  {
+    "title": "Machine Learning Intern",
+    "company": "VectorForge",
+    "location": "Pune, India",
+    "work_mode": "On-site",
+    "description": "Experiment with text classification, embeddings, semantic similarity, model evaluation and preprocessing.",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "Embeddings",
+      "scikit-learn",
+      "NLP",
+      "Pandas"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/ml"
+  },
+  {
+    "title": "Search and Recommendation Intern",
+    "company": "Findwise",
+    "location": "Gurugram, India",
+    "work_mode": "Hybrid",
+    "description": "Build semantic search and personalized recommendations. Implement retrieval, ranking and offline evaluation.",
+    "skills": [
+      "Python",
+      "Semantic Search",
+      "Embeddings",
+      "Ranking",
+      "Recommendation Systems",
+      "SQL"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/search"
+  },
+  {
+    "title": "Full Stack Developer Intern",
+    "company": "BuildNest",
+    "location": "Mumbai, India",
+    "work_mode": "Hybrid",
+    "description": "Build web applications using React, Node.js, REST APIs and MySQL.",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "REST APIs",
+      "MySQL",
+      "Git"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/fullstack"
+  },
+  {
+    "title": "Data Science Intern",
+    "company": "InsightGrid",
+    "location": "Remote, India",
+    "work_mode": "Remote",
+    "description": "Clean datasets, perform exploratory analysis, build baseline predictive models and communicate insights.",
+    "skills": [
+      "Python",
+      "Pandas",
+      "SQL",
+      "Machine Learning",
+      "Data Analysis",
+      "Power BI"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/data"
+  },
+  {
+    "title": "Python Automation Intern",
+    "company": "OpsPilot",
+    "location": "Hyderabad, India",
+    "work_mode": "On-site",
+    "description": "Write Python scripts and integrations, consume APIs, automate workflows, add tests and documentation.",
+    "skills": [
+      "Python",
+      "REST APIs",
+      "SQL",
+      "Testing",
+      "Git"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/automation"
+  },
+  {
+    "title": "NLP Research Intern",
+    "company": "LanguageWorks",
+    "location": "Remote, India",
+    "work_mode": "Remote",
+    "description": "Explore text preprocessing, information retrieval, transformer models, embeddings and NLP evaluation.",
+    "skills": [
+      "Python",
+      "NLP",
+      "Transformers",
+      "Embeddings",
+      "PyTorch",
+      "Research"
+    ],
+    "job_type": "Internship",
+    "apply_url": "https://example.com/jobs/nlp"
+  }
+]
